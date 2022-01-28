@@ -1,0 +1,40 @@
+<form name="getForm" action="/delete" method="GET">
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Due date</th>
+                <th></th>
+            </tr>
+        </thead>
+        <% for(let i of task) { %>
+            <tr>
+                <td> <input type="checkbox" name="<%= i._id %>">
+                </td>
+                <td>
+                    <p id="task-category">
+                        <%= i.title %>
+                    </p>
+                </td>
+                <td>
+                    <p id="task-description" style="width:600px">
+                        <%= i.desc.length>100? i.desc.substring(0,100)+"....":i.desc%>
+                    </p>
+                </td>
+                <td>
+                    <p id="due-date">
+                        <%= i.date.toLocaleString() %>
+                    </p>
+                </td>
+                <td>
+                    <i class="fas fa-pen-square fa-lg" onclick=""></i>
+                </td>
+            </tr>
+            <% } %>
+
+    </table>
+    <div align="center"><input type="submit" class="btn btn-danger" value="DELETE TASK">
+    </div>
+</form>
